@@ -1,0 +1,32 @@
+<% layout('layouts/boilerplate') -%>
+    <div class="row mt-5">
+        <h3 class=" container col-6  mb-3 offset-3">Sign In</h3>
+        <div class="singin container col-7 border p-5 mb-5 offset-3 shadow-lg p-3 mb-5 bg-white rounded">
+
+            <form action="http://localhost:8080/signin" method="post" novalidate class="needs-validation">
+
+                <div class="mb-4 row">
+                    <label for="username" class="col-sm-2 col-form-label">Username :</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="username" name="username" required>
+                        <div class="invalid-feedback">Please enter valid username</div>
+                    </div>
+                </div>
+                <div class="mb-4 row">
+                    <label for="email" class="col-sm-2 col-form-label">Email :</label>
+                    <div class="col-sm-9">
+                        <input type="email" class="form-control" id="email" name="email" required>
+                        <div class="invalid-feedback">Please enter valid username</div>
+                    </div>
+                </div>
+                <div class="mb-4 row">
+                    <label for="password" class="col-sm-2 col-form-label">Password :</label>
+                    <div class="col-sm-9">
+                        <input type="password" class="form-control" id="password" name="password" required>
+                        <div class="invalid-feedback">Please enter valid username</div>
+                    </div>
+                </div>
+                <button class="btn btn-success mb-5" type="submit">Sign In</button>
+            </form>
+        </div>
+    </div>

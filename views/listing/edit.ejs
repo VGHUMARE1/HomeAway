@@ -1,0 +1,80 @@
+<% layout('layouts/boilerplate') -%>
+
+    <body>
+        <!-- <h1>Edit</h1> -->
+        <div class="container col-9 border p-5 mb-5 mt-5 shadow-lg p-3 mb-5 bg-white rounded">
+            <h3 class="mb-3 mg-auto offset-5">Edit listing</h3>
+            <form action="http://localhost:8080/listing/<%= result._id%>/edit" method="post" novalidate class="needs-validation" enctype="multipart/form-data">
+
+                <div class="mb-4 row">
+                    <label for="title" class="col-sm-1 col-form-label">Title </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="title" name="title" placeholder="title"
+                            value="<%= result.title %>" required>
+                            <div class="invalid-feedback">Please enter valid title</div>
+                    </div>
+                </div>
+                <div class="mb-4 row">
+                    <label for="des" class="col-sm-2 col-form-label">Description </label>
+                    <div class="col-sm-9">
+                        <textarea name="description" id="des" class="form-control"
+                            placeholder="description"  required><%=result.description%></textarea>
+                            <div class="invalid-feedback">Please enter valid description</div>
+                    </div>
+                </div>
+
+                <div class="mb-4 row">
+                    <label for="img" class="col-sm-2 col-form-label">Orignal Image </label>
+                    <div class="col-sm-7" >
+                        <img src="<%= result.image.url%>" alt="<%= result.image.filename%> " class="mb-4" style="height: 150px; border-radius: 1rem;">
+                    </div>
+                <div class="mb-4 row">
+                    <label for="img" class="col-sm-1 col-form-label">Upload new Image </label>
+                    <div class="col-sm-10">
+                        <input type="file" class="form-control" id="img" name="image">
+                        
+                    </div>
+                </div>
+
+                <div class="mb-4 row">
+                    <label for="price" class="col-sm-1 col-form-label">Price </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="price" name="price" placeholder="price"
+                            value="<%= result.price %>"  required>
+                            <div class="invalid-feedback">Please enter valid price</div>
+                    </div>
+                </div>
+
+                <div class="mb-4 row">
+                    <div class=" row col-md-6">
+                        <label for="location" class="col-sm-2 col-form-label">Location </label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="location" name="location" placeholder="location"
+                                value="<%= result.location %>"  required>
+                                <div class="invalid-feedback">Please enter valid location</div>
+                        </div>
+                    </div>
+                    <div class="row col-md-6">
+                        <label for="country" class="col-sm-2 col-form-label">Country</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="country" name="country" placeholder="country"  required
+                                value="<%= result.country %>">
+                                <div class="invalid-feedback">Please enter valid country name</div>
+                        </div>
+                    </div>
+                    <div class="container col-1">
+                        <button class="btn btn-outline-primary  mt-5" type="submit" style="margin-left: 45%;">Submit</button>
+                    </div>
+                </div>
+
+
+
+            </form>
+
+        </div>
+
+
+
+
+
+    </body>
