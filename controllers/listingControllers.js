@@ -7,6 +7,7 @@ const geocodingClient = mbxgeocoding({ accessToken: token });
 
 module.exports.index = async (req, res, next) => {
     const result = await SampleListing.find();
+    console.log(result);
     res.render("listing/index.ejs", { result });
 }
 
@@ -20,8 +21,6 @@ module.exports.createNewListing = async (req, res, next) => {
         query: req.body.location,
         limit: 1
     }).send();
-
-
     let newList = new SampleListing(req.body);
     newList.geometry = response.body.features[0].geometry;
     let filename = req.file.filename;
@@ -92,4 +91,15 @@ module.exports.deleteListing = async (req, res, next) => {
         req.flash('success', 'listing deleted sucessfully');
     }
     res.redirect("/listing");
+}
+
+module.exports.filterListing=async(req,res)=>{
+    const {category}=req.params;
+    const result=await SampleListing.find({category:category});
+    res.render("listing/index.ejs",{result});
+}
+module.exports.search=async(req,res)=>{
+    const {search}=req.query;
+    const result=await SampleListing.find({location:search});
+    res.render("listing/index.ejs",{result});
 }

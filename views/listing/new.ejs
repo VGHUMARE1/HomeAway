@@ -9,8 +9,8 @@
             enctype="multipart/form-data">
 
             <div class="mb-4 row">
-                <label for="title" class="col-sm-1 col-form-label">Title </label>
-                <div class="col-sm-10">
+                <label for="title" class="col-sm-2 col-form-label">Title </label>
+                <div class="col-sm-9">
                     <input type="text" class="form-control" id="title" name="title" placeholder="title" required>
                     <div class="invalid-feedback">please enter valid title</div>
                 </div>
@@ -25,8 +25,8 @@
             </div>
 
             <div class="mb-4 row">
-                <label for="price" class="col-sm-1 col-form-label">Price </label>
-                <div class="col-sm-10">
+                <label for="price" class="col-sm-2 col-form-label">Price </label>
+                <div class="col-sm-9">
                     <input type="text" class="form-control" id="price" name="price" placeholder="price" required>
                     <div class="invalid-feedback">please enter valid price</div>
                 </div>
@@ -34,7 +34,28 @@
             <div class="mb-4 row">
                 <label for="img" class="col-sm-2 col-form-label">Upload Image </label>
                 <div class="col-sm-9">
-                    <input type="file" class="form-control" id="img" name="image">
+                    <input type="file" class="form-control" id="img" name="image" required>
+                </div>
+            </div>
+            <div class="mb-4 row">
+                <label for="category" class="col-sm-2 col-form-label">Category</label>
+                <div class="col-sm-9">
+                <select name="category" id="category" class=" form-control" >
+                    <option selected>Select your Airbnb's category</option>
+                    <option value="trending">Trending</option>
+                    <option value="rooms">Rooms</option>
+                    <option value="conic-cities">Conic Cities</option>
+                    <option value="mountains">Mountains</option>
+                    <option value="castles">Castles</option>
+                    <option value="amazing-pools">Amazing Pools</option>
+                    <option value="camping">Camping</option>
+                    <option value="farms">Farms</option>
+                    <option value="arctic">Arctic</option>
+                    <option value="play">Play</option>
+                    <option value="new">New</option>
+                    <option value="domes">Domes</option>
+                    <option value="boats">Boats</option>
+                  </select>
                 </div>
             </div>
 
@@ -59,9 +80,6 @@
                     <button class="btn btn-outline-primary  mt-5 ml-11" type="submit">Submit</button>
                 </div>
             </div>
-
-
-
         </form>
 
     </div>

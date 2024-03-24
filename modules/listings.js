@@ -55,6 +55,11 @@ const listeningSchema = new mongoose.Schema({
       type: [Number],
       required: true
     }
+  },
+
+  category:{
+        type:String,
+        enum:["trending","rooms","conic-cities","mountains","castles","amazing-pools","camping","farms","arctic","play","new","domes","boats"]
   }
 
 });

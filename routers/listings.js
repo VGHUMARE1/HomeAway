@@ -17,6 +17,8 @@ router.route("/new")
 .get( middleware.isLoggedIn, wrapAsc(listingControllers.renderNewListingForm))
 .post( middleware.isLoggedIn,upload.single('image'), middleware.validateListing, wrapAsc(listingControllers.createNewListing));
 
+router.get("/category/:category",wrapAsc(listingControllers.filterListing));
+router.get("/destinations",wrapAsc(listingControllers.search));
 // show route
 router.get("/:id", middleware.isLoggedIn,wrapAsc(listingControllers.showListing ));
 
