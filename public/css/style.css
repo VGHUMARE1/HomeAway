@@ -1,12 +1,21 @@
 body {
     margin: 0;
     padding: 0;
+
+    /* margin-left: 1rem !important;
+    margin-right: 1rem !important; */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.container{
+  flex: 1;
 }
 
 /* navbar */
 
 .navbar{
-    background-color: #f7f1f1;
+    background-color: #f6eded;
 }
   .container-fluid {
     padding: 0 7rem !important;
@@ -81,6 +90,7 @@ body {
 
 a {
     text-decoration: none;
+    color:black;
 }
 
 footer {
@@ -89,7 +99,7 @@ footer {
     justify-content: space-evenly;
     align-items: center;
     height: 10rem;
-    background-color: #f6f0f0;
+    background-color: #f0e3e3;
     color: black;
     text-decoration: none;
 }
