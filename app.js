@@ -36,9 +36,9 @@ app.listen(port, () => {
     console.log("listening...");
 });
 
-app.get("/", (req, res) => {
-    res.send("Connected....");
-});
+// app.get("/", (req, res) => {
+//     res.render();
+// });
 
 const store= MongoStore.create({
     mongoUrl:dburl,
