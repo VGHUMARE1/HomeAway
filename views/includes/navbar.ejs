@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/listing"><i class="fa-brands fa-airbnb "
+    <a class="navbar-brand" href="/"><i class="fa-brands fa-airbnb "
         style="color: #fe424d; margin-left: 40%;"></i>
       <h6><b>HomeAway</b></h6>
     </a>
@@ -20,11 +20,11 @@
       <div class="navbar-nav ms-auto">
         <a class="nav-link addListing" href="/listing/new">Airbnb your home</a>
         <% if(!currUser) {%>
-          <a class="nav-link" href="/signin"><b>Sign Up</b></a>
-          <a class="nav-link" href="/login"><b>Log In</b></a>
+          <a class="nav-link" href="/user/signin"><b>Sign Up</b></a>
+          <a class="nav-link" href="/user/login"><b>Log In</b></a>
           <% } %>
             <% if(currUser) {%>
-              <a class="nav-link" href="/logout">Log Out</a>
+              <a class="nav-link" href="/user/logout">Log Out</a>
               <div class="user" style="background-color: #fff ; border-radius: 2rem; padding: 0.5rem 1rem;">
                 <i class="fa-solid fa-circle-user" style="color: #fe424d"></i>
                 <b>

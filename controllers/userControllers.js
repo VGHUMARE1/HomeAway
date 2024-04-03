@@ -19,20 +19,19 @@ module.exports.signin=async (req, res,next) => {
         req.login(registeredUser, (err) => {
             if (err) {
                req.flash("error",err.message);
-               res.redirect("/signin");
+               res.redirect("/user/signin");
             }
-            res.redirect("/listing");
+            res.redirect("/");
         })
     }
      catch (err) {
     req.flash("error", err.message);
-    res.redirect("/signin");
+    res.redirect("/user/signin");
 }
 }
 
 module.exports.login=(req, res) => {
     req.flash("success", "login successfully")
-    console.log(res.locals.redirectUrl);
     res.redirect(res.locals.redirectUrl);
 }
 
@@ -42,6 +41,6 @@ module.exports.logout=(req, res, next) => {
             return next(err);
         }
         req.flash("success", "logout successfully");
-        res.redirect("/listing")
+        res.redirect("/")
     })
 }

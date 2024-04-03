@@ -3,11 +3,8 @@ const mbxgeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
 const token = process.env.MAPBOX_ACESS_TOKEN;
 const geocodingClient = mbxgeocoding({ accessToken: token });
 
-
-
 module.exports.index = async (req, res, next) => {
     const result = await SampleListing.find();
-    console.log(result);
     res.render("listing/index.ejs", { result });
 }
 
@@ -30,7 +27,7 @@ module.exports.createNewListing = async (req, res, next) => {
     newList.image = { filename, url };
     await newList.save()
     req.flash('success', 'new listing added sucessfully');
-    res.redirect("/listing");
+    res.redirect("/");
 
 }
 
@@ -43,7 +40,6 @@ module.exports.showListing = async (req, res, next) => {
         },
       })
   .populate('owner');
-    console.log(result);
     res.render("listing/show.ejs", { result });
 
 }
@@ -52,7 +48,7 @@ module.exports.renderEditForm = async (req, res, next) => {
     const result = await SampleListing.findById(id);
     if (!result) {
         req.flash('error', 'listing you want to edit does not exit');
-        res.redirect("/listing");
+        res.redirect("/");
     }
     res.render("listing/edit.ejs", { result });
 }
@@ -66,7 +62,7 @@ module.exports.editListing = async (req, res, next) => {
     const listing = await SampleListing.findById(id);
     if (!listing) {
         req.flash('error', 'listing you want to edit does not exit');
-        res.redirect("/listing");
+        res.redirect("/");
     } else {
         // let { title, description, price, location, country } = req.body;
         await SampleListing.findByIdAndUpdate(id, { ...req.body }, { runValidators: true });
@@ -90,7 +86,7 @@ module.exports.deleteListing = async (req, res, next) => {
         await SampleListing.findByIdAndDelete(id);
         req.flash('success', 'listing deleted sucessfully');
     }
-    res.redirect("/listing");
+    res.redirect("/");
 }
 
 module.exports.filterListing=async(req,res)=>{

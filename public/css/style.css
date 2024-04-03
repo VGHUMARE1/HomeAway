@@ -166,3 +166,9 @@ footer {
   background-color: #fe424d !important;
   border: none !important;
 }
+
+
+.form .button{
+     display: flex;
+     justify-content: center;
+}

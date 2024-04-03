@@ -12,7 +12,7 @@ router.route("/signin")
 
 router.route("/login")
     .get(userControllers.renderloginForm)
-    .post(middleware.redirecturl, passport.authenticate("local", { failureRedirect: "/login", failureFlash: true }), userControllers.login);
+    .post(middleware.redirecturl, passport.authenticate("local", { failureRedirect: "/user/login", failureFlash: true }), userControllers.login);
 
 
 module.exports = router;

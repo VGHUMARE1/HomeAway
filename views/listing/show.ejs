@@ -32,9 +32,9 @@
             </div>
             <% if(currUser && currUser._id.equals(result.owner._id)) {%>
                 <div class="mb-5" >
-                    <a href="http://localhost:8080/listing/<%= result._id %>/edit"><button
+                    <a href="/listing/<%= result._id %>/edit"><button
                             class="btn btn-outline-dark">Edit</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="http://localhost:8080/listing/<%= result._id %>/delete"><button
+                    <a href="/listing/<%= result._id %>/delete"><button
                             class="btn btn-outline-dark">Delete</button></a>
                 </div>
                 <% } %>
@@ -44,7 +44,7 @@
             <div class="reviews col-8 offset-2 mb-5 mt-3 shadow-lg p-5 mb-5 bg-white rounded">
 
                 <h3>Add reviews</h3>
-                <form action="http://localhost:8080/listing/<%= result._id %>/review" class="needs-validation"
+                <form action="/listing/<%= result._id %>/review" class="needs-validation"
                     novalidate method="post">
 
                     <label for="customRange3" class="form-label ">Rating</label>
@@ -104,7 +104,7 @@
 
 
                                         <a
-                                            href="http://localhost:8080/listing/<%= result._id %>/review/<%= review._id %>"><button
+                                            href="/listing/<%= result._id %>/review/<%= review._id %>"><button
                                                 class="btn btn-outline-danger">Delete</button></a>
 
                                     </div>

@@ -7,9 +7,8 @@ const {listingValidate,reviewValidate}=require("./utils/ListingSchema.js");
 module.exports.isLoggedIn = (req, res, next) => {
     if (!req.isAuthenticated()) {
         req.session.redirectUrl = req.originalUrl;
-        console.log(req.originalUrl)
         req.flash("error", "you must loged in");
-        res.redirect("/login");
+        res.redirect("/user/login");
     } else {
         next();
     }
@@ -20,7 +19,7 @@ module.exports.redirecturl = (req, res, next) => {
         res.locals.redirectUrl = req.session.redirectUrl;
        
     } else {
-        res.locals.redirectUrl = "/listing";
+        res.locals.redirectUrl = "/";
     }
      next();
 }

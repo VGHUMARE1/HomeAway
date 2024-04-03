@@ -14,6 +14,8 @@ const engine = require('ejs-mate');
 const flash=require("connect-flash");
 const passport=require("passport");
 const LocalStrategy=require("passport-local");
+const wrapAsc=require("./utils/wrapAsc.js");
+const listingControllers=require("./controllers/listingControllers.js");
 
 app.set("view engine", "views");
 app.set("views", path.join(__dirname, "views"));
@@ -36,9 +38,7 @@ app.listen(port, () => {
     console.log("listening...");
 });
 
-// app.get("/", (req, res) => {
-//     res.render();
-// });
+// app.get("/", wrapAsc(listingControllers.index));
 
 const store= MongoStore.create({
     mongoUrl:dburl,
@@ -78,17 +78,18 @@ app.use((req, res, next) => {
     next();
 })
 
-app.use("/listing", listingRouter);
+app.use("/", listingRouter);
 app.use("/listing/:id/review", reviewRouter);
-app.use("/", userRouter);
+app.use("/user", userRouter);
 
 app.all("*", (req, res, next) => {
     throw new ExpressError(404, "Page not found");
     next(err);
 })
 
+
 app.use((err, req, res, next) => {
-    let { status = 501, message = "Somthing going to be wrong" } = err;
+    let { status = 500, message = "Somthing going to be wrong" } = err;
     res.render("listing/error.ejs", { message });
 })
 

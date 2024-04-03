@@ -1,6 +1,5 @@
 const Review=require("../modules/reviews.js");
 const SampleListing=require("../modules/listings.js");
-
 module.exports.distroyReview=async (req, res, next) => {
     let { id, reviewId } = req.params;
     await SampleListing.findByIdAndUpdate(id, { $pull: { review: reviewId } });
@@ -9,7 +8,6 @@ module.exports.distroyReview=async (req, res, next) => {
     res.redirect(`/listing/${id}`);
 
 }
-
 module.exports.createReview=async (req, res, next) => {
     const { id } = req.params;
     let newreview = new Review(req.body);

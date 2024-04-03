@@ -13,24 +13,24 @@ const listingControllers=require("../controllers/listingControllers.js");
 router.get("/", wrapAsc(listingControllers.index));
 
 //add route
-router.route("/new")
+router.route("/listing/new")
 .get( middleware.isLoggedIn, wrapAsc(listingControllers.renderNewListingForm))
 .post( middleware.isLoggedIn,upload.single('image'), middleware.validateListing, wrapAsc(listingControllers.createNewListing));
 
-router.get("/category/:category",wrapAsc(listingControllers.filterListing));
-router.get("/destinations",wrapAsc(listingControllers.search));
+router.get("/listing/category/:category",wrapAsc(listingControllers.filterListing));
+router.get("/listing/destinations",wrapAsc(listingControllers.search));
 // show route
-router.get("/:id", middleware.isLoggedIn,wrapAsc(listingControllers.showListing ));
+router.get("/listing/:id", middleware.isLoggedIn,wrapAsc(listingControllers.showListing ));
 
 // app.post("/listing/:id")
 
 // edit route
-router.route("/:id/edit")
+router.route("/listing/:id/edit")
 .get( middleware.isOwner, middleware.isLoggedIn, wrapAsc(listingControllers.renderEditForm))
 .post( middleware.isOwner, middleware.isLoggedIn,upload.single('image'), middleware.validateListing, wrapAsc(listingControllers.editListing))
 
 //detete route
-router.get("/:id/delete", middleware.isOwner, middleware.isLoggedIn, wrapAsc(listingControllers.deleteListing));
+router.get("/listing/:id/delete", middleware.isOwner, middleware.isLoggedIn, wrapAsc(listingControllers.deleteListing));
 
 
 module.exports = router;
