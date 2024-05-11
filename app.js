@@ -35,7 +35,7 @@ main().then(() => {
 
 const port = 8080;
 app.listen(port, () => {
-    console.log("listening...");
+    console.log("listening on port 8080...");
 });
 
 // app.get("/", wrapAsc(listingControllers.index));
@@ -86,7 +86,6 @@ app.all("*", (req, res, next) => {
     throw new ExpressError(404, "Page not found");
     next(err);
 })
-
 
 app.use((err, req, res, next) => {
     let { status = 500, message = "Somthing going to be wrong" } = err;

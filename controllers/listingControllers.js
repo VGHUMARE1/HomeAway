@@ -2,7 +2,8 @@ const SampleListing = require("../modules/listings.js");
 const mbxgeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
 const token = process.env.MAPBOX_ACESS_TOKEN;
 const geocodingClient = mbxgeocoding({ accessToken: token });
-
+const Users = require("../modules/users.js");
+const Review= require("../modules/reviews.js");
 module.exports.index = async (req, res, next) => {
     const result = await SampleListing.find();
     res.render("listing/index.ejs", { result });
@@ -33,13 +34,10 @@ module.exports.createNewListing = async (req, res, next) => {
 
 module.exports.showListing = async (req, res, next) => {
     let { id } = req.params;
-    const result = await SampleListing.findById(id).populate({
-        path: "review",
-        populate: {
-          path: "author",
-        },
-      })
-  .populate('owner');
+    const result = await SampleListing.findById(id).populate('owner').populate({path:'review',populate:{
+        path:'author',
+    }});
+      console.log(result);
     res.render("listing/show.ejs", { result });
 
 }
